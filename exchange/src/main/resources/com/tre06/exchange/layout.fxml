@@ -28,15 +28,15 @@
     <Label styleClass="value-label"  fx:id="UsdinputLabel" text="Usd amount"
            GridPane.columnIndex="1" GridPane.rowIndex="8"/>
     <TextField fx:id="usdTextField" GridPane.columnIndex="0"
-               GridPane.rowIndex="12"></TextField>
+               GridPane.rowIndex="12" styleClass="value"></TextField>
     <TextField fx:id="lbpTextField" GridPane.columnIndex="1"
-               GridPane.rowIndex="12"></TextField>
+               GridPane.rowIndex="12" styleClass="value"></TextField>
     <RadioButton text="Buy USD"      GridPane.columnIndex="0" GridPane.rowIndex="13">
         <toggleGroup >
             <ToggleGroup fx:id="transactionType"   />
         </toggleGroup>
     </RadioButton>
     <RadioButton text="Sell USD" toggleGroup="$transactionType"   GridPane.columnIndex="0" GridPane.rowIndex="14"/>
-    <Button text="Add Transaction"     GridPane.columnIndex="0" GridPane.rowIndex="15"/>
+    <Button text="Add Transaction"     GridPane.columnIndex="0" GridPane.rowIndex="15" onAction="#addTransaction"/>
 
 </GridPane>
