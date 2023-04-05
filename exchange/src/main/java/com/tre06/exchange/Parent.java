@@ -80,9 +80,8 @@ public class Parent implements Initializable, OnPageCompleteListener{
 
         public String getResource() {
                         return switch (this) {                 
-                            case RATES ->
-                            "/com/tre06/exchange/rates/rates.fxml";
-                            case TRANSACTIONS -> "com/tre06/exchange/transactions/transactions.fxml";
+                            case RATES -> "/com/tre06/exchange/rates/rates.fxml";
+                            case TRANSACTIONS -> "/com/tre06/exchange/transactions/transactions.fxml";
                             case LOGIN -> "/com/tre06/exchange/login/login.fxml";
                             case REGISTER -> "/com/tre06/exchange/register/register.fxml";
                             default -> null;             

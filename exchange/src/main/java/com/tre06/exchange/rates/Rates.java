@@ -1,5 +1,6 @@
 package com.tre06.exchange.rates;
 
+import com.tre06.exchange.Authentication;
 import com.tre06.exchange.api.ExchangeService;
 import com.tre06.exchange.api.model.ExchangeRates;
 import com.tre06.exchange.api.model.Transaction;
@@ -51,10 +52,10 @@ public class Rates {
                 ((RadioButton)
                         transactionType.getSelectedToggle()).getText().equals("Sell USD")
         );
-
-        ExchangeService.exchangeApi().addTransaction(transaction,null).enqueue(new
-          Callback<Object>() {
-              @Override
+        String userToken = Authentication.getInstance().getToken();
+        String authHeader = userToken != null ? "Bearer " + userToken : null;
+        ExchangeService.exchangeApi().addTransaction(transaction, authHeader).enqueue(new Callback<Object>() {
+            @Override
               public void onResponse(Call<Object> call, Response<Object>
                       response) {
                   fetchRates();
