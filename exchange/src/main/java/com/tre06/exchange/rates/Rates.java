@@ -52,7 +52,7 @@ public class Rates {
                         transactionType.getSelectedToggle()).getText().equals("Sell USD")
         );
 
-        ExchangeService.exchangeApi().addTransaction(null, transaction).enqueue(new
+        ExchangeService.exchangeApi().addTransaction(transaction,null).enqueue(new
           Callback<Object>() {
               @Override
               public void onResponse(Call<Object> call, Response<Object>
