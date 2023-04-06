@@ -7,15 +7,22 @@ import com.tre06.exchange.api.model.Transaction;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 //import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+
 public class Rates {
+    @FXML
+    private ToggleGroup calculationType;
+
+    @FXML
+    private RadioButton lbpToUsdButton;
+    public TextField resultTextField; // added field
+
+    public TextField amountTextField; // added field
 
     public Label buyUsdRateLabel;
     public Label sellUsdRateLabel;
@@ -45,10 +52,26 @@ public class Rates {
              }
          });
     }
+    @FXML // added method
+    private void calculate() {
+        double amount = Double.parseDouble(amountTextField.getText());
+        double rate;
+        double result;
+        if (calculationType.getSelectedToggle() == lbpToUsdButton) {
+            rate = Double.parseDouble(buyUsdRateLabel.getText());
+            result=amount*(1/rate);
+        } else {
+            rate = Double.parseDouble(sellUsdRateLabel.getText());
+            result=amount*rate;
+        }
+
+        resultTextField.setText(String.format("%.2f", result));
+    }
+
     public void addTransaction(ActionEvent actionEvent) {
         Transaction transaction = new Transaction(
-                Float.parseFloat(usdTextField.getText()),
                 Float.parseFloat(lbpTextField.getText()),
+                Float.parseFloat(usdTextField.getText()),
                 ((RadioButton)
                         transactionType.getSelectedToggle()).getText().equals("Sell USD")
         );
