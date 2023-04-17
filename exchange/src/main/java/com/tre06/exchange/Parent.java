@@ -10,6 +10,7 @@ public class Parent implements Initializable, OnPageCompleteListener{
     public BorderPane borderPane;      
     public  Button transactionButton;
     public  Button loginButton;
+    public  Button fluctuationButton;
     public  Button registerButton;
     public  Button logoutButton;
     @Override     
@@ -21,6 +22,8 @@ public class Parent implements Initializable, OnPageCompleteListener{
                 null;
         transactionButton.setManaged(authenticated);
         transactionButton.setVisible(authenticated);
+        fluctuationButton.setManaged(true);
+        fluctuationButton.setVisible(true);
         loginButton.setManaged(!authenticated);
         loginButton.setVisible(!authenticated);
         registerButton.setManaged(!authenticated);
@@ -28,36 +31,33 @@ public class Parent implements Initializable, OnPageCompleteListener{
         logoutButton.setManaged(authenticated);
         logoutButton.setVisible(authenticated);
     }
-    public void ratesSelected() {         
-        swapContent(Section.RATES);     
-        }      
-        public void transactionsSelected() {         
-            swapContent(Section.TRANSACTIONS);     
-            }      
-            public void loginSelected() {         
+    public void ratesSelected() {swapContent(Section.RATES);}
+    public void transactionsSelected() {swapContent(Section.TRANSACTIONS);}
+    public void loginSelected() {
                 swapContent(Section.LOGIN);     
-                }      
-            public void registerSelected() {         
+                }
+    public void fluctuationSelected(){swapContent(Section.FLUCTUATION);}
+    public void registerSelected() {
                 swapContent(Section.REGISTER);     
                 }
-            public void logoutSelected() {
+    public void logoutSelected() {
                    Authentication.getInstance().deleteToken();
                    swapContent(Section.RATES);
            }
-            private void swapContent(Section section) {
-                try {
-                    URL url = getClass().getResource(section.getResource());
-                    FXMLLoader loader = new FXMLLoader(url);
-                    borderPane.setCenter(loader.load());
-                    if (section.doesComplete()) {
-                        ((PageCompleter)
-                                loader.getController()).setOnPageCompleteListener(this);
-                    }
-                    updateNavigation();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+    private void swapContent(Section section) {
+        try {
+            URL url = getClass().getResource(section.getResource());
+            FXMLLoader loader = new FXMLLoader(url);
+            borderPane.setCenter(loader.load());
+            if (section.doesComplete()) {
+                ((PageCompleter)
+                        loader.getController()).setOnPageCompleteListener(this);
             }
+            updateNavigation();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public void onPageCompleted() {
@@ -65,10 +65,12 @@ public class Parent implements Initializable, OnPageCompleteListener{
     }
 
     private enum Section {
+
                     RATES,         
                     TRANSACTIONS,         
                     LOGIN,         
-                    REGISTER;
+                    REGISTER,
+                    FLUCTUATION;
         public boolean doesComplete() {
             return switch (this) {
                 case LOGIN, REGISTER -> true;
@@ -84,6 +86,7 @@ public class Parent implements Initializable, OnPageCompleteListener{
                             case TRANSACTIONS -> "/com/tre06/exchange/transactions/transactions.fxml";
                             case LOGIN -> "/com/tre06/exchange/login/login.fxml";
                             case REGISTER -> "/com/tre06/exchange/register/register.fxml";
+                            case FLUCTUATION -> "/com/tre06/exchange/fluctuation/fluctuation.fxml";
                             default -> null;             
                         };         
                             
