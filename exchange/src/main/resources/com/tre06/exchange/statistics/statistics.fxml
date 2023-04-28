@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0"
+            prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.tre06.exchange.statistics.Stats">
+    <children>
+        <VBox alignment="CENTER" spacing="10.0">
+            <Label text="Select Statistics Type:" />
+            <ChoiceBox fx:id="statisticsChoiceBox"
+                       prefWidth="150.0"
+                       VBox.vgrow="NEVER" />
+        </VBox>
+        <StackPane prefHeight="200.0"
+                   prefWidth="600.0"
+                   AnchorPane.bottomAnchor="0.0"
+                   AnchorPane.leftAnchor="0.0"
+                   AnchorPane.rightAnchor="0.0">
+
+                <Label fx:id="meanLabel"
+                       text="Mean Value: N/A"
+                       StackPane.alignment="CENTER" />
+                <PieChart fx:id="pieChart"
+                          title="Number of Transactions"
+                          StackPane.alignment="CENTER" />
+
+        </StackPane>
+    </children>
+</AnchorPane>

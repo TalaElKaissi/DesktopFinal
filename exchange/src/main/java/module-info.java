@@ -14,5 +14,6 @@ module com.tre06.exchange {
     opens com.tre06.exchange.login to javafx.fxml;
     opens com.tre06.exchange.register to javafx.fxml;
     opens com.tre06.exchange.transactions to javafx.fxml;
+    opens com.tre06.exchange.fluctuation to javafx.fxml;
 
-}
+        }

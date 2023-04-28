@@ -1,8 +1,9 @@
 .root {
-    -fx-background-color: whitesmoke;
+    -fx-background-color:  #FAF3DD;
 }
 .header {
     -fx-font-size: 24;
+    -fx-text-fill: #4A7C59;
 }
 .value-label {
     -fx-font-size: 20;
@@ -10,3 +11,5 @@
 .value {
     -fx-font-size: 18;
 }
+
+

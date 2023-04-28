@@ -5,6 +5,7 @@
           xmlns:fx="http://javafx.com/fxml"
           fx:controller="com.tre06.exchange.register.Register"
           stylesheets="@register.css"
+          styleClass="my-background"
           prefHeight="400.0" prefWidth="600.0"
           orientation="VERTICAL"
           vgap="10"

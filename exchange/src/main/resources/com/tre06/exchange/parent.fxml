@@ -14,6 +14,8 @@
             <Button styleClass="nav-button" text="Exchange Rate" onAction="#ratesSelected"/>
             <Button fx:id="transactionButton" styleClass="nav-button" text="Transactions"
                     onAction="#transactionsSelected"/>
+            <Button fx:id="statisticButton" styleClass="nav-button" text="Statistics"
+                    onAction="#statisticsSelected"/>
             <Button fx:id="loginButton" styleClass="nav-button" text="Login" onAction="#loginSelected"/>
             <Button fx:id="fluctuationButton" styleClass="nav-button" text="Fluctuation" onAction="#fluctuationSelected"/>
             <Button fx:id="registerButton" styleClass="nav-button" text="Register" onAction="#registerSelected"/>

@@ -1,0 +1,4 @@
+
+.my-background {
+    -fx-background-color: linear-gradient(to bottom, rgba(200, 213, 185, 0.5), rgba(75, 142, 127, 0.5));
+}

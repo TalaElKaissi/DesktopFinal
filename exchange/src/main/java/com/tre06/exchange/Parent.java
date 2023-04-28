@@ -13,6 +13,7 @@ public class Parent implements Initializable, OnPageCompleteListener{
     public  Button fluctuationButton;
     public  Button registerButton;
     public  Button logoutButton;
+    public  Button statisticButton;
     @Override     
     public void initialize(URL url, ResourceBundle resourceBundle) {
         updateNavigation();
@@ -20,6 +21,7 @@ public class Parent implements Initializable, OnPageCompleteListener{
     private void updateNavigation() {
         boolean authenticated = Authentication.getInstance().getToken() !=
                 null;
+        statisticButton.setManaged(true);
         transactionButton.setManaged(authenticated);
         transactionButton.setVisible(authenticated);
         fluctuationButton.setManaged(true);
@@ -31,12 +33,14 @@ public class Parent implements Initializable, OnPageCompleteListener{
         logoutButton.setManaged(authenticated);
         logoutButton.setVisible(authenticated);
     }
+    public void fluctuationSelected(){swapContent(Section.FLUCTUATION);}
+    public void statisticsSelected(){swapContent(Section.STATISTICS);}
     public void ratesSelected() {swapContent(Section.RATES);}
     public void transactionsSelected() {swapContent(Section.TRANSACTIONS);}
     public void loginSelected() {
                 swapContent(Section.LOGIN);     
                 }
-    public void fluctuationSelected(){swapContent(Section.FLUCTUATION);}
+
     public void registerSelected() {
                 swapContent(Section.REGISTER);     
                 }
@@ -66,7 +70,8 @@ public class Parent implements Initializable, OnPageCompleteListener{
 
     private enum Section {
 
-                    RATES,         
+                    RATES,
+                    STATISTICS,
                     TRANSACTIONS,         
                     LOGIN,         
                     REGISTER,
@@ -81,12 +86,14 @@ public class Parent implements Initializable, OnPageCompleteListener{
 
 
         public String getResource() {
-                        return switch (this) {                 
+                        return switch (this) {
+                            case STATISTICS -> "com/tre06/exchange/statistics/statistics.fxml";
+                            case FLUCTUATION -> "/com/tre06/exchange/fluctuation/fluctuation.fxml";
                             case RATES -> "/com/tre06/exchange/rates/rates.fxml";
                             case TRANSACTIONS -> "/com/tre06/exchange/transactions/transactions.fxml";
                             case LOGIN -> "/com/tre06/exchange/login/login.fxml";
                             case REGISTER -> "/com/tre06/exchange/register/register.fxml";
-                            case FLUCTUATION -> "/com/tre06/exchange/fluctuation/fluctuation.fxml";
+
                             default -> null;             
                         };         
                             

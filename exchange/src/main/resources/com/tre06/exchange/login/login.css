@@ -1,2 +1,6 @@
 .title {
     -fx-font-size: 20px; }
+
+.my-background {
+    -fx-background-color: linear-gradient(to top left, #4A7C59,#FAF3DD);
+}
