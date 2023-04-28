@@ -19,15 +19,19 @@ public class Statistics implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        statisticsChoiceBox.getItems().addAll(new Mean(), new Nusers());
         statisticsChoiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue instanceof Mean) {
                 double meanValue = ((Mean) newValue).ReturnMean();
                 meanLabel.setText("Mean value: " + meanValue);
+                statisticsViewPane.getChildren().clear();
             } else if (newValue instanceof Nusers) {
                 PieChart chart = ((Nusers) newValue).CreateView();
-                statisticsViewPane.getChildren().setAll(chart);
+                statisticsViewPane.getChildren().clear();
+                statisticsViewPane.getChildren().add(chart);
             }
         });
+        statisticsChoiceBox.getSelectionModel().selectFirst();
     }
 
 }

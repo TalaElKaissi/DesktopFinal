@@ -8,7 +8,7 @@
             prefWidth="600.0"
             xmlns="http://javafx.com/javafx/17.0.2-ea"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.tre06.exchange.statistics.Stats">
+            fx:controller="com.tre06.exchange.statistics.Statistics">
     <children>
         <VBox alignment="CENTER" spacing="10.0">
             <Label text="Select Statistics Type:" />
