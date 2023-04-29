@@ -11,7 +11,7 @@ module com.tre06.exchange {
     exports com.tre06.exchange;
     exports com.tre06.exchange.rates;
     exports com.tre06.exchange.statistics;
-    opens com.tre06.exchange.statistics to java.fxml;
+    opens com.tre06.exchange.statistics to javafx.fxml;
     opens com.tre06.exchange.rates to javafx.fxml;
     opens com.tre06.exchange.login to javafx.fxml;
     opens com.tre06.exchange.register to javafx.fxml;

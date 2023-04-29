@@ -1,37 +1,42 @@
 package com.tre06.exchange.statistics;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+
 import javafx.scene.chart.PieChart;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+
 import java.net.URL;
 import java.util.ResourceBundle;
-public class Statistics implements Initializable{
-    @FXML
-    private ChoiceBox<Stats> statisticsChoiceBox;
 
+public class Statistics {
     @FXML
-    private VBox statisticsViewPane;
-
+    public PieChart PieChart;
     @FXML
-    private Label meanLabel;
+    public PieChart BarChart;
+    @FXML
+    public Label Mean;
+    @FXML
+    public Label Standard;
+    @FXML
+    public Label Number;
+    @FXML
+    public Label Q1;
+    @FXML
+    public Label Q3;
+    @FXML
+    public Label Median;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        statisticsChoiceBox.getItems().addAll(new Mean(), new Nusers());
-        statisticsChoiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue instanceof Mean) {
-                double meanValue = ((Mean) newValue).ReturnMean();
-                meanLabel.setText("Mean value: " + meanValue);
-                statisticsViewPane.getChildren().clear();
-            } else if (newValue instanceof Nusers) {
-                PieChart chart = ((Nusers) newValue).CreateView();
-                statisticsViewPane.getChildren().clear();
-                statisticsViewPane.getChildren().add(chart);
-            }
-        });
-        statisticsChoiceBox.getSelectionModel().selectFirst();
-    }
+
+    Nusers nUsers = new Nusers();
+    PieChart pieChart = nUsers.CreateView();
+
+    PieChart.setData(pieChart.getData());
+
+
 
 }

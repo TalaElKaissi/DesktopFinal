@@ -4,31 +4,66 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0"
-            prefWidth="600.0"
-            xmlns="http://javafx.com/javafx/17.0.2-ea"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.tre06.exchange.statistics.Statistics">
-    <children>
-        <VBox alignment="CENTER" spacing="10.0">
-            <Label text="Select Statistics Type:" />
-            <ChoiceBox fx:id="statisticsChoiceBox"
-                       prefWidth="150.0"
-                       VBox.vgrow="NEVER" />
-        </VBox>
-        <StackPane prefHeight="200.0"
-                   prefWidth="600.0"
-                   AnchorPane.bottomAnchor="0.0"
-                   AnchorPane.leftAnchor="0.0"
-                   AnchorPane.rightAnchor="0.0">
-
-                <Label fx:id="meanLabel"
-                       text="Mean Value: N/A"
-                       StackPane.alignment="CENTER" />
-                <PieChart fx:id="pieChart"
-                          title="Number of Transactions"
-                          StackPane.alignment="CENTER" />
-
-        </StackPane>
-    </children>
-</AnchorPane>
+<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tre06.exchange.statistics.Statistics">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="134.0" prefWidth="599.0">
+         <children>
+            <SplitPane layoutX="-8.0" layoutY="-2.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="606.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <SplitPane dividerPositions="0.4839357429718874" layoutX="7.0" layoutY="-2.0" prefHeight="200.0" prefWidth="599.0">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <BarChart fx:id="BarChart" layoutX="37.0" layoutY="18.0" prefHeight="161.0" prefWidth="190.0" title="Volume">
+                                      <xAxis>
+                                        <CategoryAxis side="BOTTOM" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis side="LEFT" />
+                                      </yAxis>
+                                    </BarChart>
+                                 </children>
+                              </AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="198.0" prefWidth="292.0">
+                                 <children>
+                                    <PieChart fx:id="PieChart" layoutX="47.0" layoutY="14.0" prefHeight="174.0" prefWidth="193.0" title="Number of users" />
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+         <children>
+            <SplitPane dividerPositions="0.4596774193548388" layoutY="-2.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="599.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="78.0" prefWidth="598.0">
+                     <children>
+                        <Label fx:id="Mean" layoutX="53.0" layoutY="37.0" prefHeight="33.0" prefWidth="82.0" text="Label" />
+                        <Label fx:id="Standard" layoutX="258.0" layoutY="36.0" prefHeight="34.0" prefWidth="82.0" text="Label" />
+                        <Label fx:id="Number" layoutX="437.0" layoutY="31.0" prefHeight="34.0" prefWidth="90.0" text="Label" />
+                        <Label layoutX="53.0" prefHeight="33.0" prefWidth="82.0" text="Mean" />
+                        <Label layoutX="236.0" layoutY="-1.0" prefHeight="34.0" prefWidth="125.0" text="Standard deviation" />
+                        <Label layoutX="441.0" prefHeight="33.0" prefWidth="82.0" text="Number" />
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <Label fx:id="Q1" layoutX="61.0" layoutY="55.0" prefHeight="33.0" prefWidth="82.0" text="Label" />
+                        <Label fx:id="Median" layoutX="258.0" layoutY="50.0" prefHeight="33.0" prefWidth="82.0" text="Label" />
+                        <Label fx:id="Q3" layoutX="427.0" layoutY="50.0" prefHeight="33.0" prefWidth="82.0" text="Label" />
+                        <Label layoutX="50.0" layoutY="16.0" prefHeight="33.0" prefWidth="82.0" text="Q1" />
+                        <Label layoutX="233.0" layoutY="15.0" prefHeight="34.0" prefWidth="125.0" text="Median" />
+                        <Label layoutX="438.0" layoutY="16.0" prefHeight="33.0" prefWidth="82.0" text="Q3" />
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </children></AnchorPane>
+  </items>
+</SplitPane>
