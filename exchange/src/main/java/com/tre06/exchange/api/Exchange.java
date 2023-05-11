@@ -1,14 +1,8 @@
 package com.tre06.exchange.api;
 
-import com.tre06.exchange.api.model.ExchangeRates;
-import com.tre06.exchange.api.model.Token;
-import com.tre06.exchange.api.model.Transaction;
-import com.tre06.exchange.api.model.User;
+import com.tre06.exchange.api.model.*;
 import retrofit2.Call;
-import retrofit2.http.Body;
-import retrofit2.http.Header;
-import retrofit2.http.GET;
-import retrofit2.http.POST;
+import retrofit2.http.*;
 
 import java.util.List;
 
@@ -24,4 +18,17 @@ public interface Exchange {
             @Header("Authorization") String authorization);
     @GET("/transaction")
     Call<List<Transaction>> getTransactions(
-            @Header("Authorization") String authorization); }
+            @Header("Authorization") String authorization);
+    @GET("/usertransaction/list/offers")
+    Call<List<Markets>> getMarket();
+    @POST("/transaction/datapoints")
+    Call<Graph> getGraph(@Body GraphQuery graphQuery);
+    @GET("/news")
+    Call<List<New>> getNew();
+    @POST("/statistics")
+    Call<Stat> getStat(@Body GraphQuery graphQuery);
+    @POST("/news/post")
+    Call<New> addNews(@Body New news, @Header("Authorization") String authorization);
+    @POST("/predict")
+    Call<Frate> getFrate(@Body Date date);
+}

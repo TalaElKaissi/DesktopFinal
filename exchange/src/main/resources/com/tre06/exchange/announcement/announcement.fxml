@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="root" stylesheets="@announcement.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tre06.exchange.announcement.Announcement">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="200.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" />
+      <TextArea fx:id="Announce" layoutX="52.0" layoutY="120.0" prefHeight="182.0" prefWidth="518.0" />
+      <Button id="#FAF3DD" accessibleText="News Post" layoutX="200.0" layoutY="320.0" mnemonicParsing="false" onAction="#addNews" prefHeight="26.0" prefWidth="200.0" text="post" />
+   </children>
+</AnchorPane>

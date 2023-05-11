@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.collections.*?>
 <?import javafx.scene.chart.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<?import java.lang.String?>
-<?import javafx.collections.FXCollections?>
-<FlowPane alignment="CENTER" styleClass="my-background" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" stylesheets="@fluctuation.css" vgap="10" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tre06.exchange.fluctuation.Fluctuation">
+<FlowPane alignment="CENTER" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" styleClass="my-background" stylesheets="@fluctuation.css" vgap="10" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tre06.exchange.fluctuation.Fluctuation">
    <children>
     <Label prefHeight="0.0" prefWidth="59.0" text="Timeframe:" />
        <HBox>
-           <ChoiceBox fx:id="timeFrame" prefHeight="26.0" prefWidth="84.0" value="Days">
+           <ChoiceBox fx:id="timeFrame" accessibleText="Timeline for graph" onAction="#GetFluctuations" prefHeight="26.0" prefWidth="84.0" value="Days">
                <items>
                    <FXCollections fx:factory="observableArrayList">
 
@@ -19,6 +18,10 @@
                </items>
            </ChoiceBox>
        </HBox>
+      <DatePicker fx:id="startdate" />
+      <TextField fx:id="starthour" />
+      <DatePicker fx:id="enddate" />
+      <TextField fx:id="endhour" />
       <LineChart fx:id="lineChart" prefHeight="374.0" prefWidth="500.0" title="Price Fluctuation">
         <xAxis>
           <NumberAxis label="Time" side="BOTTOM" />

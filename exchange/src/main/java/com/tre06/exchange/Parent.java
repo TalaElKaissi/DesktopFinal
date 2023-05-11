@@ -14,6 +14,10 @@ public class Parent implements Initializable, OnPageCompleteListener{
     public  Button registerButton;
     public  Button logoutButton;
     public  Button statisticButton;
+    public  Button newsButton;
+    public  Button marketButton;
+    public  Button predictButton;
+    public Button postNewsButton;
     @Override     
     public void initialize(URL url, ResourceBundle resourceBundle) {
         updateNavigation();
@@ -21,7 +25,14 @@ public class Parent implements Initializable, OnPageCompleteListener{
     private void updateNavigation() {
         boolean authenticated = Authentication.getInstance().getToken() !=
                 null;
+        marketButton.setManaged(true);
+        marketButton.setVisible(true);
+        predictButton.setManaged(true);
+        predictButton.setVisible(true);
         statisticButton.setManaged(true);
+        newsButton.setManaged(true);
+        postNewsButton.setManaged(authenticated);
+        postNewsButton.setVisible(authenticated);
         transactionButton.setManaged(authenticated);
         transactionButton.setVisible(authenticated);
         fluctuationButton.setManaged(true);
@@ -33,6 +44,10 @@ public class Parent implements Initializable, OnPageCompleteListener{
         logoutButton.setManaged(authenticated);
         logoutButton.setVisible(authenticated);
     }
+    public void newsSelected(){swapContent(Section.NEWS);}
+    public void postNewsSelected(){swapContent(Section.POST);}
+    public void predictSelected(){swapContent(Section.PREDICT);}
+    public void marketSelected(){swapContent(Section.MARKET);}
     public void fluctuationSelected(){swapContent(Section.FLUCTUATION);}
     public void statisticsSelected(){swapContent(Section.STATISTICS);}
     public void ratesSelected() {swapContent(Section.RATES);}
@@ -75,7 +90,11 @@ public class Parent implements Initializable, OnPageCompleteListener{
                     TRANSACTIONS,         
                     LOGIN,         
                     REGISTER,
-                    FLUCTUATION;
+                    FLUCTUATION,
+                    MARKET,
+                    PREDICT,
+                    POST,
+                    NEWS;
         public boolean doesComplete() {
             return switch (this) {
                 case LOGIN, REGISTER -> true;
@@ -87,12 +106,17 @@ public class Parent implements Initializable, OnPageCompleteListener{
 
         public String getResource() {
                         return switch (this) {
+                            case MARKET-> "/com/tre06/exchange/market/market.fxml";
                             case STATISTICS -> "/com/tre06/exchange/statistics/statistics.fxml";
                             case FLUCTUATION -> "/com/tre06/exchange/fluctuation/fluctuation.fxml";
                             case RATES -> "/com/tre06/exchange/rates/rates.fxml";
                             case TRANSACTIONS -> "/com/tre06/exchange/transactions/transactions.fxml";
                             case LOGIN -> "/com/tre06/exchange/login/login.fxml";
                             case REGISTER -> "/com/tre06/exchange/register/register.fxml";
+                            case NEWS->"/com/tre06/exchange/news/news.fxml";
+                            case PREDICT->"/com/tre06/exchange/predict/predict.fxml";
+                            case POST-> "/com/tre06/exchange/announcement/announcement.fxml";
+
 
                             default -> null;             
                         };         

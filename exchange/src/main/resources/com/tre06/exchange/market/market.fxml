@@ -1,0 +1,21 @@
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.TableColumn?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.tre06.exchange.market.Market"
+            prefHeight="400.0" prefWidth="600.0">
+    <TableView
+            fx:id="tableView"
+            AnchorPane.bottomAnchor="4"
+            AnchorPane.leftAnchor="4"
+            AnchorPane.rightAnchor="4"
+            AnchorPane.topAnchor="4">
+        <columns>
+            <TableColumn text="Trader" fx:id="Trader" prefWidth="150"/>
+            <TableColumn text="Status" fx:id="Status" prefWidth="150"/>
+            <TableColumn text="Price" fx:id="Price" prefWidth="150"/>
+            <TableColumn text="Amount" fx:id="Amount" prefWidth="150"/>
+        </columns>
+    </TableView>
+</AnchorPane>

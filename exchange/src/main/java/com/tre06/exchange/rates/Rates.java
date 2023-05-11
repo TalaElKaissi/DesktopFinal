@@ -6,7 +6,7 @@ import com.tre06.exchange.api.model.ExchangeRates;
 import com.tre06.exchange.api.model.Transaction;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
-//import javafx.fxml.FXML;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import retrofit2.Call;

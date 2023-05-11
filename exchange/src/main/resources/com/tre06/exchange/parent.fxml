@@ -1,28 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<BorderPane xmlns="http://javafx.com/javafx"
-            fx:id="borderPane" fx:controller="com.tre06.exchange.Parent"
-            xmlns:fx="http://javafx.com/fxml" prefHeight="400.0"
-            stylesheets="@parent.css"
-            prefWidth="600.0">
+
+<BorderPane fx:id="borderPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@parent.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tre06.exchange.Parent">
     <left>
-        <VBox spacing="5" styleClass="nav-container" fillWidth="true">
-            <Button styleClass="nav-button" text="Exchange Rate" onAction="#ratesSelected"/>
-            <Button fx:id="transactionButton" styleClass="nav-button" text="Transactions"
-                    onAction="#transactionsSelected"/>
-            <Button fx:id="statisticButton" styleClass="nav-button" text="Statistics"
-                    onAction="#statisticsSelected"/>
-            <Button fx:id="loginButton" styleClass="nav-button" text="Login" onAction="#loginSelected"/>
-            <Button fx:id="fluctuationButton" styleClass="nav-button" text="Fluctuation" onAction="#fluctuationSelected"/>
-            <Button fx:id="registerButton" styleClass="nav-button" text="Register" onAction="#registerSelected"/>
-            <Button fx:id="logoutButton" styleClass="nav-button" text="Log out" onAction="#logoutSelected"/>
+        <VBox fillWidth="true" spacing="5" styleClass="nav-container" stylesheets="@parent.css">
+            <Button onAction="#ratesSelected" styleClass="nav-button" text="Exchange Rate" />
+            <Button fx:id="transactionButton" onAction="#transactionsSelected" styleClass="nav-button" text="Transactions" />
+            <Button fx:id="statisticButton" onAction="#statisticsSelected" styleClass="nav-button" text="Statistics" />
+            <Button fx:id="newsButton" onAction="#newsSelected" styleClass="nav-button" text="News" />
+            <Button fx:id="loginButton" onAction="#loginSelected" styleClass="nav-button" text="Login" />
+            <Button fx:id="fluctuationButton" onAction="#fluctuationSelected" styleClass="nav-button" text="Fluctuation" />
+            <Button fx:id="registerButton" onAction="#registerSelected" styleClass="nav-button" text="Register" />
+            <Button fx:id="logoutButton" onAction="#logoutSelected" styleClass="nav-button" text="Log out" />
+            <Button fx:id="marketButton" onAction="#marketSelected" styleClass="nav-button" text="market" />
+            <Button fx:id="predictButton" onAction="#predictSelected" styleClass="nav-button" text="predict" />
+            <Button fx:id="postNewsButton" onAction="#postNewsSelected" styleClass="nav-button" text="postNews" />
         </VBox>
     </left>
     <center>
-        <fx:include source="rates/rates.fxml"/>
+        <fx:include source="rates/rates.fxml" />
     </center>
 </BorderPane>
